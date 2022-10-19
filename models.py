@@ -26,10 +26,10 @@ book_publisher = Table(
 # модель класса для автора
 class Author(Base):
     __tablename__ = 'author'
-    id = Column('id', Integer, primary_key=True)
+    id = Column(Integer, primary_key=True)
     first_name = Column(String)
     last_name = Column(String)
-    # books = relationship('Book', backref=backref('author'))
+    books = relationship('Book')  # , backref=backref('author'))
     # publishers = relationship('Publisher', secondary=author_publisher, back_populates='authors')
 
     def __repr__(self):
@@ -39,7 +39,7 @@ class Author(Base):
 # модель класса для книги
 class Book(Base):
     __tablename__ = 'book'
-    id = Column(Integer, primary_key=True)
+    id = Column('id', Integer, primary_key=True)
     author_id = Column(Integer, ForeignKey('author.id'))
     title = Column(String)
     # publishers = relationship('Publisher', secondary=book_publisher, back_populates='books')
