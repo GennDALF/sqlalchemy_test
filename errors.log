@@ -1,40 +1,20 @@
-SELECT author.id AS author_id, author.first_name AS author_first_name, author.last_name AS author_last_name
+SELECT author.author_id AS author_author_id, author.first_name AS author_first_name, author.last_name AS author_last_name 
 FROM author
-Traceback (most recent call last):
-  File "..\_Песочница\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
-    self.dialect.do_execute(
-  File "..\_Песочница\venv\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.OperationalError: no such column: author.id
+[Isaac Asimov, Pearl Buck, Tom Clancy, Stephen King, John Le Carre, Alex Michaelides, Carol Shaben]
 
-The above exception was the direct cause of the following exception:
+SELECT book.book_id AS book_book_id, book.author_id AS book_author_id, book.title AS book_title 
+FROM book
+[Dead Zone,
+ Foundation,
+ Into The Abyss,
+ It,
+ Patriot Games,
+ The Good Earth,
+ The Hunt For Red October,
+ The Shining,
+ The Silent Patient,
+ Tinker, Tailor, Solider, Spy: A George Smiley Novel]
 
-Traceback (most recent call last):
-  File "..\Data Management with SQLAlchemy\main.py", line 28, in <module>
-    print(authors.all(), end='\n'*2)
-  File "..\_Песочница\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2772, in all
-    return self._iter().all()
-  File "..\_Песочница\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2907, in _iter
-    result = self.session.execute(
-  File "..\_Песочница\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1714, in execute
-    result = conn._execute_20(statement, params or {}, execution_options)
-  File "..\_Песочница\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1705, in _execute_20
-    return meth(self, args_10style, kwargs_10style, execution_options)
-  File "..\_Песочница\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 333, in _execute_on_connection
-    return connection._execute_clauseelement(
-  File "..\_Песочница\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1572, in _execute_clauseelement
-    ret = self._execute_context(
-  File "..\_Песочница\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _execute_context
-    self._handle_dbapi_exception(
-  File "..\_Песочница\venv\lib\site-packages\sqlalchemy\engine\base.py", line 2124, in _handle_dbapi_exception
-    util.raise_(
-  File "..\_Песочница\venv\lib\site-packages\sqlalchemy\util\compat.py", line 208, in raise_
-    raise exception
-  File "..\_Песочница\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
-    self.dialect.do_execute(
-  File "..\_Песочница\venv\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: author.id
-[SQL: SELECT author.id AS author_id, author.first_name AS author_first_name, author.last_name AS author_last_name 
-FROM author]
-(Background on this error at: https://sqlalche.me/e/14/e3q8)
+SELECT publisher.publisher_id AS publisher_publisher_id, publisher.name AS publisher_name 
+FROM publisher
+[Random House, Simon & Schuster, Berkley, Penguin Random House]
